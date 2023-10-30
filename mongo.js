@@ -19,6 +19,6 @@ const newSchema=new mongoose.Schema({
     }
 })
 
-const collection = mongoose.model("collection",newSchema)
+const usersauth = mongoose.model("collection",newSchema)
 
-module.exports=collection
+module.exports=usersauth
