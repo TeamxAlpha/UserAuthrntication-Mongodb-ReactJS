@@ -9,6 +9,10 @@ mongoose.connect("mongodb+srv://newuser:userdb@cluster0.ht4q82n.mongodb.net/")
 
 
 const newSchema=new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
     email:{
         type:String,
         required:true
@@ -16,6 +20,14 @@ const newSchema=new mongoose.Schema({
     password:{
         type:String,
         required:true
+    },
+    age: {
+        type: Number,
+        required: true
+    },
+    gender: {
+        type: String,
+        required: true
     }
 })
 

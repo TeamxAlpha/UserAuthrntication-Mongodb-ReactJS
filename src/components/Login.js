@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate, Link } from "react-router-dom"
+import './comp.css';
 
 
 function Login() {
-
+      
     const history=useNavigate();
 
     const [email,setEmail]=useState('')
@@ -19,10 +20,10 @@ function Login() {
                 email,password
             })
             .then(res=>{
-                if(res.data=="exist"){
-                    history("/home",{state:{id:email}})
+                if(res.data==="exist"){
+                    history("/home", { state: { id: email, name: userName } })
                 }
-                else if(res.data=="notexist"){
+                else if(res.data==="notexist"){
                     alert("User have not sign up")
                 }
             })
@@ -46,15 +47,15 @@ function Login() {
             <h1>Login</h1>
 
             <form action="POST">
-                <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email"  />
+                <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email"   />
                 <input type="password" onChange={(e) => { setPassword(e.target.value) }} placeholder="Password"  />
                 <input type="submit" onClick={submit} />
 
             </form>
 
-            <br />
+            <br/>
             <p>OR</p>
-            <br />
+            <br/>
 
             <Link to="/signup">Signup Page</Link>
 
