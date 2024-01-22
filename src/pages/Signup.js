@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import './css/comp.css';
+import logoimg from './images/logo.png';    
 
-function Login() {
+function Signup() {
     const history = useNavigate();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -13,44 +15,51 @@ function Login() {
     async function submit(e) {
         e.preventDefault();
 
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert("Please enter a valid email address");
+            return;
+        }
+
         try {
-            await axios.post("http://localhost:8000/signup", {
+            const response = await axios.post("http://localhost:8000/signup", {
                 name,
                 email,
                 password,
                 age,
                 gender
-            })
-            .then((res) => {
-                if (res.data === "exist") {
-                    alert("User already exists");
-                } else if (res.data === "notexist") {
-                  history("/home", { state: { id: email, username: name } });
-                }
-            })
-            .catch((e) => {
-                alert("Wrong details");
-                console.log(e);
             });
 
-        } catch (e) {
-            console.log(e);
+            if (response.data === "exist") {
+                alert("User already exists");
+            } else if (response.data === "notexist") {
+                history("/home", { state: { id: email, username: name } });
+            }
+        } catch (error) {
+            alert("Error occurred while signing up");
+            console.log(error);
         }
     }
 
     return (
+        <div className="hero">
         <div className="login">
+            <img alt="LogoIMG" className="logoimg" src={logoimg}></img>
             <h1>Signup</h1>
             <form action="POST">
                 <input
                     type="text"
                     onChange={(e) => { setName(e.target.value) }}
-                    placeholder="Name" 
+                    placeholder="Name"
                 />
                 <input
                     type="email"
                     onChange={(e) => { setEmail(e.target.value) }}
                     placeholder="Email"
+                    pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                    title="Please enter a valid email address"
+                    required
                 />
                 <input
                     type="password"
@@ -72,9 +81,10 @@ function Login() {
             <br />
             <p>OR</p>
             <br />
-            <Link to="/">Login Page</Link>
+            <Link to="/" className="link">Login Page</Link>
+        </div>
         </div>
     );
 }
 
-export default Login;
+export default Signup;

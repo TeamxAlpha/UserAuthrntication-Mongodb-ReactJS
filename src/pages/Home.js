@@ -1,6 +1,7 @@
 import React from "react";
-import './comp.css';
+import './css/comp.css';
 import { useLocation } from "react-router-dom";
+import logoimg from './images/logo.png';
 
 function Home() {
     const location = useLocation();
@@ -23,6 +24,7 @@ function Home() {
    
     return (
        <div className="container">
+        <img className="logoimg" src={logoimg}></img>
          <div className="text-center">
            <h1>Welcome {username} to Your Dashboard</h1>
            <p>Logged in as: {id}</p>

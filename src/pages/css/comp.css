@@ -1,0 +1,196 @@
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('./fonts/poppins/Poppins-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('./fonts/poppins/Poppins-Medium.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('./fonts/poppins/Poppins-Bold.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url('./fonts/poppins/Poppins-SemiBold.ttf'); 
+}
+
+
+*{
+	font-family: Poppins-Regular, sans-serif;
+}
+
+/*Login*/
+.hero {
+  position: relative;
+  height: 100vh; /* 100% of the viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bolder;
+  overflow: hidden; /* Ensures that the ::before pseudo-element covers the entire .hero element */
+  background:linear-gradient(to right, gray, black);
+  
+}
+
+.logoimg{
+width: 90px;
+height: 90px;
+}
+
+.login {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: lightgray;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    border: none;
+  }
+  
+  input:focus {
+    border-color: transparent !important;
+  }
+  
+  input::-webkit-input-placeholder {
+    color: black;
+  }
+  
+  input:-moz-placeholder {
+    color: black;
+  }
+  
+  input::-moz-placeholder {
+    color: black;
+  }
+  
+  input:-ms-input-placeholder {
+    color: black;
+  }
+  
+
+  
+  input[type="submit"] {
+    outline: none !important;
+    border: none;
+    background-color: gray;
+
+  }
+  
+  input[type="submit"]:hover {
+    cursor: pointer;  
+    background-color: black;
+    color: #FFF;
+  }
+  
+  p {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .link{
+    color: black;
+  }
+  /*Home*/
+
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Header Styles */
+  h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #777;
+  }
+  
+  /* Dashboard Section Styles */
+  .dashboard-sections {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .section {
+    flex: 1;
+    background: #FFF;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-right: 20px; /* Adjust the margin between sections */
+  }
+  
+  .section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  /* Custom styles for each section (modify as needed) */
+  .section1 {
+    background: #f4f4f4;
+  }
+  
+  .section2 {
+    background: #eaeaea;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .dashboard-sections {
+      flex-direction: column;
+    }
+  
+    .section {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
